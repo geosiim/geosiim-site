@@ -28,7 +28,7 @@ jobs:
       - name: Montar a pasta publicada
         run: |
           mkdir _site
-          cp -r index.html 404.html CNAME .nojekyll robots.txt sitemap.xml assets _site/
+          cp -r index.html 404.html CNAME .nojekyll robots.txt sitemap.xml og-image.png assets fonts _site/
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

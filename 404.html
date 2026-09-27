@@ -1,21 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Página não encontrada — GEOSIIM</title>
-  <meta name="robots" content="noindex">
-  <style>
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px;
-           font: 16px/1.6 system-ui, sans-serif; background: #f7f8f6; color: #14201b; text-align: center; }
-    @media (prefers-color-scheme: dark) { body { background: #0f1714; color: #e6ece9; } a { color: #3fb58a; } }
-    a { color: #0f6b4f; font-weight: 600; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página não encontrada | GEOSIIM Cidades Inteligentes</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/industry.css">
+<style>
+@font-face{font-family:'Barlow';font-weight:400;font-display:swap;src:url(/fonts/Barlow-400.woff2) format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-weight:600;font-display:swap;src:url(/fonts/BarlowCondensed-600.woff2) format('woff2')}
+:root{--color-bg:#FFFFFF;--color-text:#16222B;--color-accent:#0E6B7D;--color-accent-600:#0C5A69;--color-accent-700:#0B3F49;--color-divider:#DBE3E6}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px 16px;background:#F7F9FA;color:#16222B;font-size:17px}
+main{max-width:520px}
+h1{font-size:clamp(32px,6vw,48px);line-height:1.05;text-transform:uppercase;color:#0B3F49;margin:12px 0 16px}
+p{color:#55666F}
+.codigo{font-weight:600;letter-spacing:.08em;color:#0E6B7D;margin:0}
+.acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{min-height:44px;padding:0 18px;text-decoration:none;text-transform:uppercase;letter-spacing:.04em}
+</style>
 </head>
 <body>
-  <div>
-    <h1>Página não encontrada</h1>
-    <p><a href="/">Voltar ao início</a> · <a href="https://app.geosiim.com">Acessar a plataforma</a></p>
+<main>
+  <p class="codigo">404</p>
+  <h1>Página não encontrada</h1>
+  <p>O endereço acessado não existe ou mudou de lugar.</p>
+  <div class="acoes">
+    <a class="btn btn-primary" href="/" style="color:#FFFFFF">Voltar ao início</a>
+    <a class="btn btn-secondary" href="https://app.geosiim.com" style="color:#0B3F49;border-color:#0E6B7D">Entrar na plataforma</a>
   </div>
+</main>
 </body>
 </html>

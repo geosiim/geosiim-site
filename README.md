@@ -11,15 +11,32 @@ página de apresentação.
 
 | Arquivo | Função |
 |---|---|
-| `index.html` | A página única do site (design do Claude Design) |
+| `index.html` | A página única do site (design do Claude Design, em HTML estático) |
+| `assets/site.js` | Menu mobile, seção ativa no menu e formulário de contato |
+| `assets/geosiim-dashboard.js` | Painel animado do topo (web component, sem dependências) |
+| `assets/industry.css` | Design system Industry com a paleta GEOSIIM |
+| `fonts/` | Barlow, Barlow Condensed e IBM Plex Mono (servidas localmente) |
+| `og-image.png` | Imagem de compartilhamento (1200×630) |
 | `404.html` | Página de erro do Pages |
 | `CNAME` | Domínio personalizado: `www.geosiim.com` |
 | `.nojekyll` | Desliga o Jekyll; os arquivos são servidos como estão |
 | `robots.txt`, `sitemap.xml` | Indexação em buscadores |
-| `assets/` | Imagens, fontes, favicon |
 | `.github/workflows/pages.yml` | Publica a cada push na `main` |
 
-Não há etapa de build: o que está no repositório é o que vai ao ar.
+Não há etapa de build nem dependência externa (CDN, Google Fonts): o que
+está no repositório é o que vai ao ar.
+
+### Sobre a conversão do design
+
+O export do Claude Design (`*.dc.html`) é montado no navegador por um runtime
+que baixa React do unpkg. Para produção a página foi convertida em HTML
+estático equivalente: os `{{ bindings }}` viraram valores fixos, os `sc-if`
+viraram elementos com `hidden`, os atributos `style-hover`/`style-focus`
+viraram classes CSS, e a lógica do componente foi para `assets/site.js`.
+O conteúdo aparece sem esperar JavaScript e fica legível para buscadores.
+
+Ao trazer uma nova versão do design, repita a conversão (ou peça ao Claude
+Code) em vez de copiar o `.dc.html` direto.
 
 ## Configuração (uma vez)
 
@@ -68,14 +85,18 @@ dig www.geosiim.com +short   # deve mostrar geosiim.github.io e os IPs 185.199.x
 dig geosiim.com +short       # os quatro 185.199.10x.153
 ```
 
-## Trocar a página provisória pelo design
+## Pendências de conteúdo
 
-1. No Claude Design, exporte o projeto como HTML (ou "Handoff to Claude Code").
-2. Substitua `index.html` e coloque imagens/fontes em `assets/`.
-3. Mantenha no `<head>` as metatags de título, descrição, `canonical` e
-   Open Graph, e confira que o botão de acesso aponta para
-   `https://app.geosiim.com`.
-4. Push na `main` → o workflow publica em ~1 minuto.
+- **E-mail `contato@geosiim.com`**: o plano da Hostinger não inclui
+  hospedagem; confirme que existe uma caixa ou um redirecionamento para esse
+  endereço, senão os contatos se perdem.
+- **Formulário de contato**: sem backend, o botão Enviar abre o programa de
+  e-mail do visitante com a mensagem pronta. Para envio direto, crie um
+  endpoint num serviço de formulários e preencha `FORM_ENDPOINT` em
+  `assets/site.js` (POST com FormData; resposta 2xx = enviado).
+- **Política de Privacidade e Termos de Uso**: os links ainda apontam para
+  `#`. O formulário pede consentimento LGPD, então a política precisa existir.
+- **CNPJ e endereço** no rodapé: retirados até haver os dados oficiais.
 
 Para testar localmente:
 

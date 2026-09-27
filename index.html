@@ -1,76 +1,344 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GEOSIIM — Cidades Inteligentes</title>
-  <meta name="description" content="GEOSIIM: plataforma govtech de gestão territorial, cadastro multifinalitário e avaliação imobiliária para municípios.">
-  <link rel="canonical" href="https://www.geosiim.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.geosiim.com/">
-  <meta property="og:title" content="GEOSIIM — Cidades Inteligentes">
-  <meta property="og:description" content="Plataforma govtech de gestão territorial para municípios.">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <!--
-    PÁGINA PROVISÓRIA.
-    Este arquivo será substituído pelo HTML exportado do Claude Design.
-    O que precisa sobreviver à troca: as metatags acima e o botão com
-    href="https://app.geosiim.com".
-  -->
-  <style>
-    :root {
-      --fundo: #f7f8f6;
-      --texto: #14201b;
-      --suave: #52605a;
-      --marca: #0f6b4f;
-      --marca-texto: #ffffff;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --fundo: #0f1714;
-        --texto: #e6ece9;
-        --suave: #9aa8a2;
-        --marca: #3fb58a;
-        --marca-texto: #06110d;
-      }
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; }
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background: var(--fundo);
-      color: var(--texto);
-      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    }
-    header, main, footer { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
-    header { display: flex; align-items: center; justify-content: space-between; padding-top: 24px; }
-    .logo { font-weight: 700; letter-spacing: .04em; font-size: 1.15rem; }
-    main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-top: 48px; padding-bottom: 48px; }
-    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.1; margin: 0 0 16px; max-width: 16ch; }
-    p.lead { color: var(--suave); font-size: 1.15rem; max-width: 56ch; margin: 0 0 32px; }
-    .botao {
-      display: inline-block; padding: 14px 28px; border-radius: 8px;
-      background: var(--marca); color: var(--marca-texto);
-      text-decoration: none; font-weight: 600;
-    }
-    .botao:hover, .botao:focus-visible { filter: brightness(1.08); }
-    .botao.contorno { background: transparent; color: var(--marca); border: 1px solid var(--marca); padding: 8px 18px; }
-    footer { padding-bottom: 24px; color: var(--suave); font-size: .875rem; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GEOSIIM Cidades Inteligentes | Inteligência imobiliária municipal</title>
+<meta name="description" content="Software govtech de inteligência imobiliária municipal: cadastro territorial multifinalitário, atualização da Planta Genérica de Valores (PGV) e apoio à gestão do IPTU e do ITBI para prefeituras brasileiras.">
+<link rel="canonical" href="https://www.geosiim.com/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0B3F49">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="GEOSIIM Cidades Inteligentes">
+<meta property="og:title" content="GEOSIIM: construindo a inteligência das cidades">
+<meta property="og:description" content="Inteligência imobiliária municipal para prefeituras: cadastro territorial, PGV, IPTU e ITBI com base em dados verificáveis.">
+<meta property="og:url" content="https://www.geosiim.com/">
+<meta property="og:image" content="https://www.geosiim.com/og-image.png">
+<meta property="og:image:alt" content="GEOSIIM Cidades Inteligentes — painel de inteligência territorial">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GEOSIIM: construindo a inteligência das cidades">
+<meta name="twitter:description" content="Inteligência imobiliária municipal para prefeituras: cadastro territorial, PGV, IPTU e ITBI com base em dados verificáveis.">
+<meta name="twitter:image" content="https://www.geosiim.com/og-image.png">
+<link rel="preload" href="fonts/BarlowCondensed-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/industry.css">
+<style>
+/* Sem dependência externa: fontes servidas da pasta /fonts (subconjunto latino, cobre o português). */
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/Barlow-400.woff2) format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/Barlow-500.woff2) format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/Barlow-600.woff2) format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Barlow-700.woff2) format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/BarlowCondensed-600.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/IBMPlexMono-500.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/IBMPlexMono-600.woff2) format('woff2')}
+/* Notas de layout da página:
+ - SEÇÃO 3 — BENEFÍCIOS. Blocos de largura total, um por linha, para dar peso igual aos três argumentos. O numeral é decorativo (aria-hidden), posicionado atrás do texto em tom claro de petróleo.
+ - gap de 32 px: as marcas de registro (+) dos blocos vizinhos não se tocam.
+ - Faixa de selos: largura total, centralizada; o ponto médio é decorativo e fica fora da leitura de tela.
+ - SEÇÃO 4 — CONTATO. Fundo petróleo escuro; duas colunas que empilham abaixo de ~800 px (flex-wrap). Validação própria (noValidate) para mostrar erros em texto, ligados a cada campo por aria-describedby.
+ - Honeypot: invisível, fora da tabulação e escondido de leitores de tela. Se vier preenchido, é robô.
+ - RODAPÉ. Mesmo petróleo escuro do contato, separado por uma linha. Três colunas que se reorganizam sozinhas (auto-fit).
+ - Espaço reservado: preencher com CNPJ e endereço oficiais.
+*/
+/* Tokens do Industry sobrescritos pela paleta do produto GEOSIIM. */
+:root{--color-bg:#FFFFFF;--color-surface:#F7F9FA;--color-text:#16222B;--color-accent:#0E6B7D;--color-accent-600:#0C5A69;--color-accent-700:#0B3F49;--color-divider:#DBE3E6;--shadow-md:0 6px 24px rgba(11,63,73,.10)}
+/* Rolagem suave nas âncoras, desligada quando o usuário pede menos movimento. */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:#FFFFFF;color:#16222B;font-family:var(--font-body);font-size:16px;line-height:1.6;text-wrap:pretty}
+a{color:#0E6B7D}
+a:hover{color:#0B3F49}
+main:focus{outline:none}
+/* Em fundos escuros o anel de foco passa a branco para manter contraste. */
+[data-dark] :focus-visible{outline-color:#FFFFFF}
+/* Menu: horizontal no desktop; abaixo de 900 px vira painel deslizante (só estas regras precisam de media query). */
+[data-headbar]{display:grid;grid-template-columns:1fr auto 1fr;column-gap:16px}
+[data-navlinks]{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0}
+[data-navlinks] a{padding:10px 14px}
+[data-navlinks] a:hover{background:#EEF2F4;color:#0B3F49}
+[data-navlinks] a[aria-current="location"]{box-shadow:inset 0 -2px 0 #0E6B7D}
+[data-menubtn],[data-backdrop]{display:none}
+@media (max-width:900px){
+[data-headbar]{grid-template-columns:1fr 0 auto;column-gap:8px}
+[data-navlinks]{position:fixed;top:68px;right:0;bottom:0;width:min(320px,86vw);flex-direction:column;align-items:stretch;gap:0;background:#FFFFFF;border-left:1px solid #DBE3E6;padding:12px 20px 24px;box-shadow:0 6px 24px rgba(11,63,73,.10);transform:translateX(100%);visibility:hidden;transition:transform .28s ease,visibility 0s linear .28s;z-index:60;overflow-y:auto}
+[data-navlinks][data-open="true"]{transform:none;visibility:visible;transition:transform .28s ease}
+[data-navlinks] a{padding:16px 4px;border-bottom:1px solid #DBE3E6;font-size:16px}
+[data-navlinks] a[aria-current="location"]{box-shadow:inset 3px 0 0 #0E6B7D;padding-left:14px}
+[data-menubtn]{display:inline-flex}
+[data-backdrop]{position:fixed;inset:68px 0 0 0;background:rgba(11,63,73,.35);z-index:55}
+[data-backdrop][data-open="true"]{display:block}
+}
+@media (max-width:480px){[data-menulabel]{display:none}}
+/* Seção 1: texto à esquerda alinhado ao contêiner de 1200 px; a coluna direita sangra até a borda da tela
+   e tem o painel animado como fundo. Abaixo de 960 px empilha, texto primeiro. */
+[data-hero]{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:min(calc(100vh - 68px),860px)}
+[data-hero-text]{padding-left:max(clamp(20px,5vw,72px),calc((100vw - 1200px)/2 + 72px));padding-right:clamp(24px,4vw,56px)}
+@media (max-width:960px){[data-hero]{grid-template-columns:1fr;min-height:0}[data-hero-text]{padding-right:clamp(20px,5vw,72px)}[data-hero-art]{height:clamp(520px,110vw,680px);border-left:0!important;border-top:1px solid #DBE3E6}}
+/* Soluções: 3×2 no desktop, 2×3 no tablet, 1 coluna no celular. */
+[data-grid6]{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:1023px){[data-grid6]{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:639px){[data-grid6]{grid-template-columns:1fr}}
+/* Estados de hover/foco (no design eram atributos style-hover/style-focus). */
+.fc1:focus{top:12px!important}
+.hv2:hover{background:#EEF2F4!important}
+.hv3:hover{color:#FFFFFF!important;text-decoration-thickness:2px!important}
+.hv4:hover{background:rgba(255,255,255,.12)!important;color:#FFFFFF!important}
+.hv5:hover{text-decoration:underline!important;color:#FFFFFF!important}
+.hv6:hover{color:#FFFFFF!important}
+[hidden]{display:none!important}
+</style>
+<script src="assets/geosiim-dashboard.js" defer></script>
+<script src="assets/site.js" defer></script>
 </head>
 <body>
-  <header>
-    <span class="logo">GEOSIIM</span>
-    <a class="botao contorno" href="https://app.geosiim.com">Acessar plataforma</a>
-  </header>
-  <main>
-    <h1>Gestão territorial inteligente para municípios</h1>
-    <p class="lead">Cadastro multifinalitário, avaliação imobiliária e inteligência geográfica em uma única plataforma govtech.</p>
-    <p><a class="botao" href="https://app.geosiim.com">Acessar o GEOSIIM</a></p>
-  </main>
-  <footer>© <span id="ano">2026</span> GEOSIIM Cidades Inteligentes</footer>
-  <script>document.getElementById('ano').textContent = new Date().getFullYear()</script>
+<a class="fc1" href="#conteudo" style="position:absolute;left:12px;top:-80px;z-index:100;background:#FFFFFF;color:#0B3F49;padding:10px 16px;font-weight:600;border:2px solid #0E6B7D;text-decoration:none">Pular para o conteúdo</a>
+<header style="position:sticky;top:0;z-index:50;background:#FFFFFF;border-bottom:1px solid #DBE3E6">
+  <div data-headbar="" style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px);height:68px;align-items:center">
+    <a href="#sobre" aria-label="GEOSIIM Cidades Inteligentes, início da página" style="justify-self:start;display:flex;flex-direction:column;text-decoration:none;color:#0B3F49;line-height:1">
+      <span style="font-family:var(--font-heading);font-weight:600;font-size:26px;letter-spacing:.06em;color:#0B3F49">GEOSIIM</span>
+      <span style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#55666F;margin-top:4px;white-space:nowrap">Cidades Inteligentes</span>
+    </a>
+    <nav aria-label="Navegação principal" style="justify-self:center">
+      <ul id="menu-principal" data-navlinks="" data-open="false">
+        <li><a href="#sobre" aria-current="location" style="display:block;color:#0B3F49;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap">Sobre</a></li>
+        <li><a href="#solucoes" aria-current="false" style="display:block;color:#0B3F49;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap">Soluções</a></li>
+        <li><a href="#beneficios" aria-current="false" style="display:block;color:#0B3F49;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap">Benefícios</a></li>
+        <li><a href="#contato" aria-current="false" style="display:block;color:#0B3F49;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap">Contato</a></li>
+      </ul>
+    </nav>
+    <div style="justify-self:end;display:flex;align-items:center;gap:8px">
+      <a href="https://app.geosiim.com" class="btn btn-primary blueprint" style="min-height:44px;padding:0 18px;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:#FFFFFF;text-decoration:none;white-space:nowrap">
+        <span>Entrar</span>
+      </a>
+      <button class="hv2" type="button" data-menubtn="" aria-expanded="false" aria-controls="menu-principal" aria-label="Menu" style="align-items:center;justify-content:center;gap:8px;min-height:44px;min-width:44px;padding:0 10px;background:transparent;color:#0B3F49;border:1px solid #0E6B7D;font-family:var(--font-heading);font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer">
+        <span data-icone-fechado style="display:contents">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round"><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </span>
+        <span data-icone-aberto hidden>
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+        </span>
+        <span data-menulabel="" aria-hidden="true">Menu</span>
+      </button>
+    </div>
+  </div>
+  <div data-backdrop="" data-open="false" aria-hidden="true"></div>
+</header>
+<main id="conteudo" tabindex="-1">
+  <section id="sobre" aria-labelledby="titulo-inicio" data-hero="" style="background:#FFFFFF;scroll-margin-top:68px">
+    <div data-hero-text="" style="min-width:0;display:flex;flex-direction:column;justify-content:center;padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(40px,6vw,80px)">
+      <h1 id="titulo-inicio" style="font-family:var(--font-heading);font-weight:600;font-size:clamp(36px,4.4vw,58px);line-height:1.04;letter-spacing:.005em;text-transform:uppercase;color:#0B3F49;margin:0;text-wrap:balance">GEOSIIM: construindo a inteligência das cidades</h1>
+      <p style="font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:#55666F;max-width:44ch;margin:24px 0 0">Conheça a nova forma de ver a cidade. Somos o software govtech que transforma dados dispersos em inteligência para prefeituras brasileiras.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:32px">
+        <a href="#contato" class="btn btn-primary" style="min-height:48px;padding:0 22px;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:#FFFFFF;text-decoration:none">
+          <span>Falar com a equipe</span>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+        <a href="#solucoes" class="btn btn-secondary" style="min-height:48px;padding:0 22px;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:#0B3F49;border-color:#0E6B7D;border-radius:0;text-decoration:none">Conhecer as soluções</a>
+      </div>
+    </div>
+    <div data-hero-art="" style="position:relative;min-width:0;background:#EEF2F4;border-left:1px solid #DBE3E6;overflow:hidden">
+      <p id="descricao-painel" style="position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0">Animação ilustrativa, sem dados reais: o painel de inteligência territorial do GEOSIIM exibe um mapa de lotes urbanos que alterna entre valor venal por metro quadrado, área construída, um filtro de imóveis, uma vista em 3D da verticalização e a localização de equipamentos públicos.</p>
+      <div style="position:absolute;top:clamp(20px,3vw,40px);bottom:clamp(20px,3vw,40px);left:clamp(20px,3vw,40px);right:-2px">
+        <geosiim-dashboard speed="1" freeze-step="0" aria-describedby="descricao-painel" style="display:block;width:100%;height:100%"></geosiim-dashboard>
+      </div>
+    </div>
+  </section>
+
+  <section id="solucoes" aria-labelledby="titulo-solucoes" style="background:#F7F9FA;padding:clamp(56px,8vw,104px) 0;scroll-margin-top:68px">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+      <p style="display:flex;gap:12px;align-items:baseline;margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#0B3F49"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-weight:500">02</span><span>Soluções</span></p>
+      <hr style="height:1px;border:0;background:#DBE3E6;margin:12px 0 28px">
+      <h2 id="titulo-solucoes" style="font-family:var(--font-heading);font-weight:600;font-size:clamp(30px,3.6vw,44px);line-height:1.08;letter-spacing:.005em;text-transform:uppercase;color:#0B3F49;margin:0">Soluções</h2>
+      <p style="margin:16px 0 0;max-width:60ch;font-size:18px;color:#55666F">Um ambiente único para o que hoje está espalhado em planilhas, sistemas separados e memória de servidor.</p>
+      <div data-grid6="" style="display:grid;gap:24px;margin-top:48px">
+        <article class="blueprint" style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;background:#FFFFFF">
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" style="color:#0E6B7D;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="m16 3 4 4-4 4"></path><path d="M20 7H4"></path><path d="m8 21-4-4 4-4"></path><path d="M4 17h16"></path></svg>
+          <h3 style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.15;letter-spacing:.02em;text-transform:uppercase;color:#0B3F49;margin:0">Integração CIB/SINTER</h3>
+          <p style="margin:0;font-size:16px;color:#16222B">Envio do Cadastro Imobiliário Brasileiro ao SINTER conforme o manual vigente, com validação prévia, controle de rejeições e reconciliação.</p>
+        </article>
+        <article class="blueprint" style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;background:#FFFFFF">
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" style="color:#0E6B7D;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>
+          <h3 style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.15;letter-spacing:.02em;text-transform:uppercase;color:#0B3F49;margin:0">Avaliação de imóveis</h3>
+          <p style="margin:0;font-size:16px;color:#16222B">Laudos para fins tributários, fiscais e patrimoniais segundo a ABNT NBR 14653, com rastreabilidade de cada cálculo e grau de fundamentação apurado.</p>
+        </article>
+        <article class="blueprint" style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;background:#FFFFFF">
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" style="color:#0E6B7D;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg>
+          <h3 style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.15;letter-spacing:.02em;text-transform:uppercase;color:#0B3F49;margin:0">Cadastro Territorial Multifinalitário</h3>
+          <p style="margin:0;font-size:16px;color:#16222B">Cadastro geoespacial dos imóveis, com histórico permanente e controle de qualidade da informação.</p>
+        </article>
+        <article class="blueprint" style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;background:#FFFFFF">
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" style="color:#0E6B7D;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><rect width="18" height="18" x="3" y="3"></rect><path d="M3 9h18"></path><path d="M3 15h18"></path><path d="M9 3v18"></path><path d="M15 3v18"></path></svg>
+          <h3 style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.15;letter-spacing:.02em;text-transform:uppercase;color:#0B3F49;margin:0">Planta Genérica de Valores</h3>
+          <p style="margin:0;font-size:16px;color:#16222B">Base técnica para atualizar a PGV a partir de dados de mercado, e não de correção linear.</p>
+        </article>
+        <article class="blueprint" style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;background:#FFFFFF">
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" style="color:#0E6B7D;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path><path d="M8 13v-2"></path><path d="M11 13V9"></path><path d="M14 13v-3"></path></svg>
+          <h3 style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.15;letter-spacing:.02em;text-transform:uppercase;color:#0B3F49;margin:0">Observatório do Mercado Imobiliário</h3>
+          <p style="margin:0;font-size:16px;color:#16222B">Coleta, organização e validação de ofertas e transações, separando registro, pesquisa e amostra.</p>
+        </article>
+        <article class="blueprint" style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;background:#FFFFFF">
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" style="color:#0E6B7D;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><rect width="7" height="9" x="3" y="3"></rect><rect width="7" height="5" x="14" y="3"></rect><rect width="7" height="9" x="14" y="12"></rect><rect width="7" height="5" x="3" y="16"></rect></svg>
+          <h3 style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.15;letter-spacing:.02em;text-transform:uppercase;color:#0B3F49;margin:0">Inteligência para o setor público</h3>
+          <p style="margin:0;font-size:16px;color:#16222B">Painéis territoriais, análises comparativas e indicadores que respondem onde estão as distorções entre cadastro, valor fiscal e mercado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="beneficios" aria-labelledby="titulo-beneficios" style="background:#FFFFFF;padding:clamp(56px,8vw,104px) 0 0;scroll-margin-top:68px">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+      <p style="display:flex;gap:12px;align-items:baseline;margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#0E6B7D"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-weight:500">03</span><span>Benefícios</span></p>
+      <hr style="height:1px;border:0;background:#DBE3E6;margin:12px 0 28px">
+      <h2 id="titulo-beneficios" style="font-family:var(--font-heading);font-weight:600;font-size:clamp(30px,3.6vw,44px);line-height:1.08;letter-spacing:.005em;text-transform:uppercase;color:#0B3F49;margin:0;max-width:24ch">O que o município ganha</h2>
+      <div style="display:flex;flex-direction:column;gap:32px;margin-top:48px">
+        <article aria-labelledby="ben-1" class="blueprint" style="padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px);display:flex;flex-wrap:wrap;gap:16px clamp(32px,5vw,72px);align-items:flex-start">
+          <span aria-hidden="true" style="position:absolute;right:clamp(16px,3vw,40px);top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-weight:600;font-size:clamp(96px,13vw,184px);line-height:1;letter-spacing:-.04em;color:#DCEAED;pointer-events:none;user-select:none">01</span>
+          <h3 id="ben-1" style="position:relative;flex:1 1 240px;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,2.4vw,30px);line-height:1.1;letter-spacing:.02em;text-transform:uppercase;color:#0B3F49;margin:0">Segurança jurídica</h3>
+          <div style="position:relative;flex:2 1 340px;display:flex;flex-direction:column;gap:12px;max-width:58ch">
+            <p style="margin:0;font-size:17px;color:#16222B">Tributação, desapropriação, locação e indenização apoiadas em laudo fundamentado.</p>
+            <p style="margin:0;font-size:17px;color:#16222B">Memória de cálculo auditável e defensável perante o controle externo e o Judiciário.</p>
+          </div>
+        </article>
+        <article aria-labelledby="ben-2" class="blueprint" style="padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px);display:flex;flex-wrap:wrap;gap:16px clamp(32px,5vw,72px);align-items:flex-start">
+          <span aria-hidden="true" style="position:absolute;right:clamp(16px,3vw,40px);top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-weight:600;font-size:clamp(96px,13vw,184px);line-height:1;letter-spacing:-.04em;color:#DCEAED;pointer-events:none;user-select:none">02</span>
+          <h3 id="ben-2" style="position:relative;flex:1 1 240px;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,2.4vw,30px);line-height:1.1;letter-spacing:.02em;text-transform:uppercase;color:#0B3F49;margin:0">Arrecadação com justiça fiscal</h3>
+          <div style="position:relative;flex:2 1 340px;display:flex;flex-direction:column;gap:12px;max-width:58ch">
+            <p style="margin:0;font-size:17px;color:#16222B">A atualização da Planta Genérica de Valores corrige distorções entre imóveis semelhantes.</p>
+            <p style="margin:0;font-size:17px;color:#16222B">Quem paga a menos passa a contribuir, e quem paga a mais deixa de subsidiar.</p>
+          </div>
+        </article>
+        <article aria-labelledby="ben-3" class="blueprint" style="padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px);display:flex;flex-wrap:wrap;gap:16px clamp(32px,5vw,72px);align-items:flex-start">
+          <span aria-hidden="true" style="position:absolute;right:clamp(16px,3vw,40px);top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-weight:600;font-size:clamp(96px,13vw,184px);line-height:1;letter-spacing:-.04em;color:#DCEAED;pointer-events:none;user-select:none">03</span>
+          <h3 id="ben-3" style="position:relative;flex:1 1 240px;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,2.4vw,30px);line-height:1.1;letter-spacing:.02em;text-transform:uppercase;color:#0B3F49;margin:0">Visão estratégica da cidade</h3>
+          <div style="position:relative;flex:2 1 340px;display:flex;flex-direction:column;gap:12px;max-width:58ch">
+            <p style="margin:0;font-size:17px;color:#16222B">O território vira base de decisão.</p>
+            <p style="margin:0;font-size:17px;color:#16222B">Onde há potencial construtivo ocioso, onde o cadastro está defasado, onde a vistoria rende mais.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div style="background:#EEF2F4;margin-top:clamp(56px,7vw,88px);border-top:1px solid #DBE3E6">
+      <ul aria-label="Referências técnicas e de conformidade" style="max-width:1200px;margin:0 auto;padding:20px clamp(20px,5vw,72px);list-style:none;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 16px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#0B3F49">
+        <li style="font-variant-numeric:tabular-nums;white-space:nowrap">ABNT NBR 14653</li><li aria-hidden="true" style="color:#55666F;flex:none">·</li><li style="white-space:nowrap">SINTER / CIB</li><li aria-hidden="true" style="color:#55666F;flex:none">·</li><li style="white-space:nowrap">Conformidade com a LGPD</li><li aria-hidden="true" style="color:#55666F;flex:none">·</li><li style="white-space:nowrap">Trilha de auditoria completa</li>
+      </ul>
+    </div>
+  </section>
+  <section id="contato" data-dark="" aria-labelledby="titulo-contato" style="background:#0B3F49;color:#FFFFFF;padding:clamp(56px,8vw,104px) 0;scroll-margin-top:68px">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px);display:flex;flex-wrap:wrap;gap:48px clamp(40px,6vw,96px);align-items:flex-start">
+      <div style="flex:1 1 300px;min-width:0">
+        <p style="display:flex;gap:12px;align-items:baseline;margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#FFFFFF"><span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-weight:500">04</span><span>Contato</span></p>
+        <hr style="height:1px;border:0;background:rgba(255,255,255,.25);margin:12px 0 28px">
+        <h2 id="titulo-contato" style="font-family:var(--font-heading);font-weight:600;font-size:clamp(30px,3.6vw,44px);line-height:1.08;letter-spacing:.005em;text-transform:uppercase;color:#FFFFFF;margin:0">Fale com a equipe</h2>
+        <p style="margin:16px 0 0;max-width:40ch;font-size:18px;color:rgba(255,255,255,.9)">Atendemos prefeituras de todo o país. Conte o seu caso e retornamos em até dois dias úteis.</p>
+        <p style="margin:32px 0 0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85)">E-mail</p>
+        <p style="margin:6px 0 0;font-size:20px;font-weight:500"><a class="hv3" href="mailto:contato@geosiim.com" style="color:#FFFFFF;text-underline-offset:4px">contato@geosiim.com</a></p>
+      </div>
+      <div style="flex:1.5 1 420px;min-width:0">
+        <div data-sucesso hidden>
+          <div role="status" style="border:1px solid rgba(255,255,255,.4);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+            <h3 id="titulo-sucesso" tabindex="-1" style="font-family:var(--font-heading);font-weight:600;font-size:26px;line-height:1.15;letter-spacing:.02em;text-transform:uppercase;color:#FFFFFF;margin:0">Mensagem enviada</h3>
+            <p style="margin:0;font-size:17px;color:rgba(255,255,255,.9);max-width:48ch">Recebemos o seu contato. Retornamos em até dois dias úteis pelo e-mail informado.</p>
+            <button type="button" class="hv4 btn" style="margin-top:8px;min-height:44px;padding:0 16px;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:#FFFFFF;border:1px solid rgba(255,255,255,.7);border-radius:0">Enviar outra mensagem</button>
+          </div>
+        </div>
+        <div data-formulario>
+          <form id="form-contato" novalidate="" aria-labelledby="titulo-contato" aria-busy="false" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px">
+            <p style="grid-column:1/-1;margin:0;font-size:14px;color:rgba(255,255,255,.85)">Campos marcados com <span style="color:#FFD0BC">*</span> são obrigatórios.</p>
+            <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+              <label for="f-nome" style="font-size:15px;font-weight:500;color:#FFFFFF">Nome <span aria-hidden="true" style="color:#FFD0BC">*</span></label>
+              <input id="f-nome" name="nome" type="text" autocomplete="name" aria-required="true" aria-invalid="false" aria-describedby="err-nome" style="width:100%;min-height:48px;padding:10px 12px;font:inherit;font-size:16px;color:#16222B;background:#FFFFFF;border:2px solid #FFFFFF;border-radius:0">
+              <p id="err-nome" style="margin:0;font-size:14px;line-height:1.4;color:#FFD0BC"></p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+              <label for="f-email" style="font-size:15px;font-weight:500;color:#FFFFFF">E-mail <span aria-hidden="true" style="color:#FFD0BC">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" aria-required="true" aria-invalid="false" aria-describedby="err-email" inputMode="email" style="width:100%;min-height:48px;padding:10px 12px;font:inherit;font-size:16px;color:#16222B;background:#FFFFFF;border:2px solid #FFFFFF;border-radius:0">
+              <p id="err-email" style="margin:0;font-size:14px;line-height:1.4;color:#FFD0BC"></p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+              <label for="f-tel" style="font-size:15px;font-weight:500;color:#FFFFFF">Telefone <span style="color:rgba(255,255,255,.8);font-weight:400">(opcional)</span></label>
+              <input id="f-tel" name="telefone" type="tel" autocomplete="tel" aria-invalid="false" aria-describedby="err-telefone" inputMode="tel" style="width:100%;min-height:48px;padding:10px 12px;font:inherit;font-size:16px;color:#16222B;background:#FFFFFF;border:2px solid #FFFFFF;border-radius:0">
+              <p id="err-telefone" style="margin:0;font-size:14px;line-height:1.4;color:#FFD0BC"></p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+              <label for="f-prefeitura" style="font-size:15px;font-weight:500;color:#FFFFFF">Prefeitura <span aria-hidden="true" style="color:#FFD0BC">*</span></label>
+              <input id="f-prefeitura" name="prefeitura" type="text" autocomplete="organization" aria-required="true" aria-invalid="false" aria-describedby="err-prefeitura" style="width:100%;min-height:48px;padding:10px 12px;font:inherit;font-size:16px;color:#16222B;background:#FFFFFF;border:2px solid #FFFFFF;border-radius:0">
+              <p id="err-prefeitura" style="margin:0;font-size:14px;line-height:1.4;color:#FFD0BC"></p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+              <label for="f-cargo" style="font-size:15px;font-weight:500;color:#FFFFFF">Cargo <span aria-hidden="true" style="color:#FFD0BC">*</span></label>
+              <input id="f-cargo" name="cargo" type="text" autocomplete="organization-title" aria-required="true" aria-invalid="false" aria-describedby="err-cargo" style="width:100%;min-height:48px;padding:10px 12px;font:inherit;font-size:16px;color:#16222B;background:#FFFFFF;border:2px solid #FFFFFF;border-radius:0">
+              <p id="err-cargo" style="margin:0;font-size:14px;line-height:1.4;color:#FFD0BC"></p>
+            </div>
+            <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px">
+              <label for="f-mensagem" style="font-size:15px;font-weight:500;color:#FFFFFF">Mensagem <span aria-hidden="true" style="color:#FFD0BC">*</span></label>
+              <textarea id="f-mensagem" name="mensagem" rows="5" aria-required="true" aria-invalid="false" aria-describedby="err-mensagem" style="width:100%;min-height:132px;padding:10px 12px;font:inherit;font-size:16px;color:#16222B;background:#FFFFFF;border:2px solid #FFFFFF;border-radius:0;resize:vertical"></textarea>
+              <p id="err-mensagem" style="margin:0;font-size:14px;line-height:1.4;color:#FFD0BC"></p>
+            </div>
+            <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:6px">
+              <div style="display:flex;flex-wrap:wrap;gap:6px 12px;align-items:flex-start">
+                <input id="f-consent" name="consentimento" type="checkbox" value="sim" aria-required="true" aria-invalid="false" aria-describedby="err-consentimento" style="width:22px;height:22px;margin:1px 0 0;flex:none;accent-color:#0E6B7D;cursor:pointer">
+                <label for="f-consent" style="flex:1 1 240px;font-size:15px;line-height:1.5;color:#FFFFFF;cursor:pointer">Autorizo o contato da GEOSIIM e o tratamento dos meus dados para esta finalidade. <span aria-hidden="true" style="color:#FFD0BC">*</span></label>
+                <a class="hv3" href="#" style="font-size:15px;line-height:1.5;color:#FFFFFF;white-space:nowrap">Política de Privacidade</a>
+              </div>
+              <p id="err-consentimento" style="margin:0 0 0 34px;font-size:14px;line-height:1.4;color:#FFD0BC"></p>
+            </div>
+            <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden">
+              <label for="f-site">Não preencha este campo</label>
+              <input id="f-site" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:16px">
+              <div role="alert">
+                <div data-aviso hidden>
+                  <p style="margin:0;padding:12px 16px;background:#FFFFFF;color:#8f3510;font-size:15px;font-weight:500;border-left:0"></p>
+                </div>
+              </div>
+              <div style="display:flex;justify-content:flex-end">
+                <button type="submit" class="btn btn-primary blueprint" style="min-height:48px;min-width:160px;padding:0 24px;font-size:16px;letter-spacing:.04em;text-transform:uppercase;border-color:rgba(255,255,255,.6)">
+                  <span>Enviar</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer data-dark="" style="background:#0B3F49;color:#FFFFFF;border-top:1px solid rgba(255,255,255,.2);padding:56px 0 28px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:40px;padding-bottom:40px">
+      <div>
+        <p style="margin:0;display:flex;flex-direction:column;line-height:1">
+          <span style="font-family:var(--font-heading);font-weight:600;font-size:26px;letter-spacing:.06em">GEOSIIM</span>
+          <span style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-top:4px">Cidades Inteligentes</span>
+        </p>
+        <p style="margin:20px 0 0;font-size:15px;color:rgba(255,255,255,.85);max-width:36ch">Inteligência imobiliária municipal: cadastro territorial, Planta Genérica de Valores e apoio à gestão do IPTU e do ITBI.</p>
+      </div>
+      <nav aria-labelledby="rodape-nav">
+        <h2 id="rodape-nav" style="margin:0 0 12px;font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85)">Navegação</h2>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+          <li><a class="hv5" href="#sobre" style="display:inline-block;padding:6px 0;color:#FFFFFF;text-decoration:none;font-size:15px">Sobre</a></li>
+          <li><a class="hv5" href="#solucoes" style="display:inline-block;padding:6px 0;color:#FFFFFF;text-decoration:none;font-size:15px">Soluções</a></li>
+          <li><a class="hv5" href="#beneficios" style="display:inline-block;padding:6px 0;color:#FFFFFF;text-decoration:none;font-size:15px">Benefícios</a></li>
+          <li><a class="hv5" href="#contato" style="display:inline-block;padding:6px 0;color:#FFFFFF;text-decoration:none;font-size:15px">Contato</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 style="margin:0 0 12px;font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85)">Contato</h2>
+        <p style="margin:0;font-size:15px"><a class="hv6" href="mailto:contato@geosiim.com" style="color:#FFFFFF">contato@geosiim.com</a></p>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2);font-size:14px;color:rgba(255,255,255,.85)">
+      <p style="margin:0;white-space:nowrap">© <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums">2026</span> GEOSIIM Cidades Inteligentes</p>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 24px">
+        <li style="white-space:nowrap"><a class="hv6" href="#" style="color:#FFFFFF">Política de Privacidade</a></li>
+        <li style="white-space:nowrap"><a class="hv6" href="#" style="color:#FFFFFF">Termos de Uso</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
