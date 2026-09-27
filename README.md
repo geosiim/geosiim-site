@@ -49,10 +49,13 @@ Em **Settings → Pages** deste repositório:
 3. Depois que o DNS propagar e o certificado for emitido, marque
    **Enforce HTTPS**.
 
-> Recomendado: verificar o domínio em **Settings (da conta) → Pages →
-> Verified domains**. Isso impede que outro repositório do GitHub
-> reivindique `geosiim.com` se a configuração do Pages for removida.
-> O GitHub mostra um registro TXT para cadastrar na Hostinger.
+> **Recomendado: verificar o domínio.** Impede que outra conta do GitHub
+> publique usando `geosiim.com`. Fica nas configurações da **conta**, não do
+> repositório: https://github.com/settings/pages → **Add a domain** →
+> `geosiim.com`. O GitHub mostra um registro TXT; na Hostinger crie
+> `TXT` com nome `_github-pages-challenge-geosiim` (a Hostinger completa
+> `.geosiim.com`) e o código indicado, depois clique em **Verify**.
+> Não apague esse TXT: o GitHub o reconfere periodicamente.
 
 ### 2. DNS na Hostinger
 
