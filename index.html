@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GEOSIIM — Cidades Inteligentes</title>
+  <meta name="description" content="GEOSIIM: plataforma govtech de gestão territorial, cadastro multifinalitário e avaliação imobiliária para municípios.">
+  <link rel="canonical" href="https://www.geosiim.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.geosiim.com/">
+  <meta property="og:title" content="GEOSIIM — Cidades Inteligentes">
+  <meta property="og:description" content="Plataforma govtech de gestão territorial para municípios.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <!--
+    PÁGINA PROVISÓRIA.
+    Este arquivo será substituído pelo HTML exportado do Claude Design.
+    O que precisa sobreviver à troca: as metatags acima e o botão com
+    href="https://app.geosiim.com".
+  -->
+  <style>
+    :root {
+      --fundo: #f7f8f6;
+      --texto: #14201b;
+      --suave: #52605a;
+      --marca: #0f6b4f;
+      --marca-texto: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fundo: #0f1714;
+        --texto: #e6ece9;
+        --suave: #9aa8a2;
+        --marca: #3fb58a;
+        --marca-texto: #06110d;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--fundo);
+      color: var(--texto);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    header, main, footer { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+    header { display: flex; align-items: center; justify-content: space-between; padding-top: 24px; }
+    .logo { font-weight: 700; letter-spacing: .04em; font-size: 1.15rem; }
+    main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-top: 48px; padding-bottom: 48px; }
+    h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.1; margin: 0 0 16px; max-width: 16ch; }
+    p.lead { color: var(--suave); font-size: 1.15rem; max-width: 56ch; margin: 0 0 32px; }
+    .botao {
+      display: inline-block; padding: 14px 28px; border-radius: 8px;
+      background: var(--marca); color: var(--marca-texto);
+      text-decoration: none; font-weight: 600;
+    }
+    .botao:hover, .botao:focus-visible { filter: brightness(1.08); }
+    .botao.contorno { background: transparent; color: var(--marca); border: 1px solid var(--marca); padding: 8px 18px; }
+    footer { padding-bottom: 24px; color: var(--suave); font-size: .875rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="logo">GEOSIIM</span>
+    <a class="botao contorno" href="https://app.geosiim.com">Acessar plataforma</a>
+  </header>
+  <main>
+    <h1>Gestão territorial inteligente para municípios</h1>
+    <p class="lead">Cadastro multifinalitário, avaliação imobiliária e inteligência geográfica em uma única plataforma govtech.</p>
+    <p><a class="botao" href="https://app.geosiim.com">Acessar o GEOSIIM</a></p>
+  </main>
+  <footer>© <span id="ano">2026</span> GEOSIIM Cidades Inteligentes</footer>
+  <script>document.getElementById('ano').textContent = new Date().getFullYear()</script>
+</body>
+</html>
