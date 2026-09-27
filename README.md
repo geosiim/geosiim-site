@@ -57,12 +57,20 @@ Em **Settings → Pages** deste repositório:
 ### 2. DNS na Hostinger
 
 Em **hPanel → Domínios → geosiim.com → DNS / Nameservers → Gerenciar
-registros DNS**, apague os registros `A`/`CNAME` padrão de `@` e `www`
-(os de "parking") e crie:
+registros DNS**. Só se mexe em dois nomes: `www` e `@`.
+
+**`www`** — já existe um `CNAME www → geosiim.com`. Um nome só pode ter um
+CNAME, então **edite esse registro** (ou apague e recrie) trocando o destino:
 
 | Tipo | Nome | Aponta para | TTL |
 |---|---|---|---|
 | `CNAME` | `www` | `geosiim.github.io` | 3600 |
+
+**`@`** — apague os registros `A`/`AAAA` de `@` que apontam para a Hostinger
+(estacionamento) e crie:
+
+| Tipo | Nome | Aponta para | TTL |
+|---|---|---|---|
 | `A` | `@` | `185.199.108.153` | 3600 |
 | `A` | `@` | `185.199.109.153` | 3600 |
 | `A` | `@` | `185.199.110.153` | 3600 |
@@ -75,6 +83,10 @@ registros DNS**, apague os registros `A`/`CNAME` padrão de `@` e `www`
 Os registros de `@` fazem `geosiim.com` (sem www) redirecionar
 automaticamente para `www.geosiim.com`.
 
+> **Não altere** os registros `MX`, `TXT` (SPF, DKIM, DMARC) nem os
+> `CNAME` de e-mail (`autodiscover`, `autoconfig`, etc.): eles mantêm o
+> `contato@geosiim.com` funcionando e são independentes do site.
+
 **Não** crie registro para `app` ainda — ele será apontado para o servidor
 da aplicação (ver abaixo).
 
@@ -85,17 +97,15 @@ dig www.geosiim.com +short   # deve mostrar geosiim.github.io e os IPs 185.199.x
 dig geosiim.com +short       # os quatro 185.199.10x.153
 ```
 
-## Pendências de conteúdo
+## Conteúdo e decisões
 
-- **E-mail `contato@geosiim.com`**: o plano da Hostinger não inclui
-  hospedagem; confirme que existe uma caixa ou um redirecionamento para esse
-  endereço, senão os contatos se perdem.
-- **Formulário de contato**: sem backend, o botão Enviar abre o programa de
-  e-mail do visitante com a mensagem pronta. Para envio direto, crie um
-  endpoint num serviço de formulários e preencha `FORM_ENDPOINT` em
+- **Formulário de contato**: sem servidor, o botão Enviar abre o programa de
+  e-mail do visitante com a mensagem pronta, endereçada a
+  `contato@geosiim.com`. Quando houver backend, preencha `FORM_ENDPOINT` em
   `assets/site.js` (POST com FormData; resposta 2xx = enviado).
-- **Política de Privacidade e Termos de Uso**: os links ainda apontam para
-  `#`. O formulário pede consentimento LGPD, então a política precisa existir.
+- **Política de Privacidade e Termos de Uso**: ainda não existem; os links
+  foram retirados do formulário e do rodapé. Ao publicá-los, recolocar o link
+  ao lado da autorização de contato (LGPD) e no rodapé.
 - **CNPJ e endereço** no rodapé: retirados até haver os dados oficiais.
 
 Para testar localmente:
